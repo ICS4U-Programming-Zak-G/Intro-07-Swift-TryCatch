@@ -8,37 +8,47 @@
 //
 //  Volume of sphere calculator in Swift with a Try Catch
 
-// Import libraries
+// Import library
 import Foundation
 
-// Introduce program
-print("This program calculates the volume of a sphere.")
+// define function to calculate volume
+func sphereVolume() {
 
-// Get user input
-print("Please enter the radius (cm): ")
+    // Introduce program to user
+    print("This program calculates the volume of a sphere.")
 
-// do try catch
-do {
-    // Assign user input to variable
-    let radiusString = readLine()
+    // Get user input
+    print("Please enter a radius (cm): ")
 
-    // Try to cast string to float
-    let radiusFloat = try Float(radiusString!)
+    // Try to assign input as sting and convert into float
+    guard let radiusString = readLine(), let radiusFloat = Float(radiusString) else {
 
-    // Check if number is positive
-    if (radiusFloat >= 0 ) {
+        // Tell user invalid input if failed conversion
+        print("invalid input")
 
-        // Calculate volume
-        let volume = (4.0/3.0) * (Float.pi*pow(radiusFloat, 3))
-
-        // Print volume
-        print("volume = \(volume) cm^3")
-
-    // Tell user number is negative
-    } else {
-        print("No negative numbers allowed.")
+        // Exit function
+        return
     }
 
-} catch {
-    print("/(radiusString!) is not a valid number.")
+    // Check if input is negative
+    if (radiusFloat < 0) {
+
+        // If negative tell user
+        print("No negative inputs.")
+    
+    // Otherwise calculate volume of sphere
+    } else {
+        // Calculate the volume of the sphere
+        let volume = (4.0 / 3.0) * (Float.pi * pow(radiusFloat, 3))
+
+        // Round volume
+        let volumeRounded = round(1000 * volume)/1000
+
+        // Display the volume to user
+        print("The volume of a sphere with a radius of \(radiusFloat) cm is \(volumeRounded) cm³.")
+    }
+
 }
+
+// Call function
+sphereVolume()
