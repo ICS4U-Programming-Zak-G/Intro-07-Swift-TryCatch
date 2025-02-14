@@ -42,7 +42,7 @@ func sphereVolume() {
         let volume = (4.0 / 3.0) * (Float.pi * pow(radiusFloat, 3))
 
         // Round volume
-        let volumeRounded = round(1000 * volume)/1000
+        let volumeRounded:String = String(format: "%0.3f", volume)
 
         // Display the volume to user
         print("The volume of a sphere with a radius of \(radiusFloat) cm is \(volumeRounded) cm³.")
