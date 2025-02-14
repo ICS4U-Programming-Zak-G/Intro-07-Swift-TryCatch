@@ -24,7 +24,7 @@ func sphereVolume() {
     guard let radiusString = readLine(), let radiusFloat = Float(radiusString) else {
 
         // Tell user invalid input if failed conversion
-        print("invalid input")
+        print("Invalid input. This is not a number.")
 
         // Exit function
         return
